@@ -1,0 +1,37 @@
+﻿.\gradlew.bat : 
+発生場所 行:1 文字:1
++ .\gradlew.bat dependencie
+s --configuration debugComp
+ileClasspath > de ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+FAILURE: Build failed with 
+an exception.
+
+* What went wrong:
+configuration 'debugCompile
+Classpath' not found in con
+figuration container for ro
+ot project 'DailyTrips'.
+
+* Try:
+> Run with --stacktrace opt
+ion to get the stack trace.
+> Run with --info or --debu
+g option to get more log ou
+tput.
+> Run with --scan to genera
+te a Build Scan (Powered by
+ Develocity).
+> Get more help at https://
+help.gradle.org.
+
+BUILD FAILED in 820ms

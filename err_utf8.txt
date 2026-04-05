@@ -1,0 +1,43 @@
+﻿.\gradlew.bat : 
+発生場所 行:1 文字:1
++ .\gradlew.bat assembleDeb
+ug --console=plain > assemb
+le_out.txt 2> ass ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+FAILURE: Build failed with 
+an exception.
+
+* What went wrong:
+Execution failed for task '
+:app:processDebugResources'
+.
+> Cannot mutate the depende
+ncies of configuration ':ap
+p:debugCompileClasspath' af
+ter the configuration was r
+esolved. After a configurat
+ion has been observed, it s
+hould not be modified.
+
+* Try:
+> Run with --stacktrace opt
+ion to get the stack trace.
+> Run with --info or --debu
+g option to get more log ou
+tput.
+> Run with --scan to genera
+te a Build Scan (Powered by
+ Develocity).
+> Get more help at https://
+help.gradle.org.
+
+BUILD FAILED in 3s

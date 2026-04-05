@@ -1,0 +1,67 @@
+﻿> Task :app:preBuild UP-TO-DATE
+> Task :app:preDebugBuild UP-TO-DATE
+> Task :app:checkDebugAarMetadata UP-TO-DATE
+> Task :app:generateDebugResValues UP-TO-DATE
+> Task :app:mapDebugSourceSetPaths UP-TO-DATE
+> Task :app:generateDebugResources UP-TO-DATE
+> Task :app:mergeDebugResources UP-TO-DATE
+> Task :app:packageDebugResources UP-TO-DATE
+> Task :app:parseDebugLocalResources UP-TO-DATE
+> Task :app:createDebugCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksDebug UP-TO-DATE
+> Task :app:processDebugMainManifest UP-TO-DATE
+> Task :app:processDebugManifest UP-TO-DATE
+> Task :app:processDebugManifestForPackage UP-TO-DATE
+> Task :app:processDebugResources FAILED
+
+[Incubating] Problems report is available at: file:///C:/AppDev/trip%20app/build/reports/problems/problems-report.html
+.\gradlew.bat : 
+発生場所 行:1 文字:1
++ .\gradlew.bat app:process
+DebugResources --console=pl
+ain > plain_error ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+FAILURE: Build failed with 
+an exception.
+
+* What went wrong:
+Execution failed for task '
+:app:processDebugResources'
+.
+> Cannot mutate the depende
+ncies of configuration ':ap
+p:debugCompileClasspath' af
+ter the configuration was r
+esolved. After a configurat
+ion has been observed, it s
+hould not be modified.
+
+* Try:
+> Run with --stacktrace opt
+ion to get the stack trace.
+> Run with --info or --debu
+g option to get more log ou
+tput.
+> Run with --scan to genera
+te a Build Scan (Powered by
+ Develocity).
+> Get more help at https://
+help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.0.0/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 804ms
+12 actionable tasks: 1 executed, 11 up-to-date

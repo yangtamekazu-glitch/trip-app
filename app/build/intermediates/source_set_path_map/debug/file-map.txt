@@ -1,0 +1,57 @@
+com.example.dailytrips.app-pngs-0 C:\AppDev\trip app\app\build\generated\res\pngs\debug
+com.example.dailytrips.app-resValues-1 C:\AppDev\trip app\app\build\generated\res\resValues\debug
+com.example.dailytrips.app-packageDebugResources-2 C:\AppDev\trip app\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.dailytrips.app-packageDebugResources-3 C:\AppDev\trip app\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.dailytrips.app-merged_res-4 C:\AppDev\trip app\app\build\intermediates\merged_res\debug
+com.example.dailytrips.app-debug-5 C:\AppDev\trip app\app\src\debug\res
+com.example.dailytrips.app-main-6 C:\AppDev\trip app\app\src\main\res
+com.example.dailytrips.app-foundation-release-7 C:\Users\yangt\.gradle\caches\transforms-3\0074f76451607ba4f91a6f49f0da20dd\transformed\foundation-release\res
+com.example.dailytrips.app-core-1.12.0-8 C:\Users\yangt\.gradle\caches\transforms-3\01be542a8a7642ecba403b94caa2bdf6\transformed\core-1.12.0\res
+com.example.dailytrips.app-ui-unit-release-9 C:\Users\yangt\.gradle\caches\transforms-3\02d37eca331a9a1396b84c05bfd58a82\transformed\ui-unit-release\res
+com.example.dailytrips.app-profileinstaller-1.3.1-10 C:\Users\yangt\.gradle\caches\transforms-3\06969f8046f43eda714780ada6fe13cf\transformed\profileinstaller-1.3.1\res
+com.example.dailytrips.app-ui-tooling-release-11 C:\Users\yangt\.gradle\caches\transforms-3\115e372b6b942b8ddd4fa4d11b75899a\transformed\ui-tooling-release\res
+com.example.dailytrips.app-ui-tooling-preview-release-12 C:\Users\yangt\.gradle\caches\transforms-3\22d0c09914e2009417315e307b719c1b\transformed\ui-tooling-preview-release\res
+com.example.dailytrips.app-foundation-layout-release-13 C:\Users\yangt\.gradle\caches\transforms-3\2630cb549af31261d3da0095b765e855\transformed\foundation-layout-release\res
+com.example.dailytrips.app-maps-compose-4.3.3-14 C:\Users\yangt\.gradle\caches\transforms-3\2cc3b239b3b49c343fd63e9b71a86bd0\transformed\maps-compose-4.3.3\res
+com.example.dailytrips.app-animation-core-release-15 C:\Users\yangt\.gradle\caches\transforms-3\2ea5e455a0946f668bfd91e3161ee805\transformed\animation-core-release\res
+com.example.dailytrips.app-lifecycle-viewmodel-2.7.0-16 C:\Users\yangt\.gradle\caches\transforms-3\391416446132c3f6a640c721da6d8fd5\transformed\lifecycle-viewmodel-2.7.0\res
+com.example.dailytrips.app-activity-ktx-1.8.2-17 C:\Users\yangt\.gradle\caches\transforms-3\3dc6929b3b47b580943347fe842735f3\transformed\activity-ktx-1.8.2\res
+com.example.dailytrips.app-activity-compose-1.8.2-18 C:\Users\yangt\.gradle\caches\transforms-3\4230b1e2459546b812aff70978012fb4\transformed\activity-compose-1.8.2\res
+com.example.dailytrips.app-annotation-experimental-1.4.0-19 C:\Users\yangt\.gradle\caches\transforms-3\44a7225d63fc593cbd7941e20da18da5\transformed\annotation-experimental-1.4.0\res
+com.example.dailytrips.app-coil-base-2.5.0-20 C:\Users\yangt\.gradle\caches\transforms-3\49d6aaee894c229b0e697b15b0ef6740\transformed\coil-base-2.5.0\res
+com.example.dailytrips.app-lifecycle-viewmodel-compose-2.7.0-21 C:\Users\yangt\.gradle\caches\transforms-3\4dd91fcbc7835e3ee4e43e6755230b8c\transformed\lifecycle-viewmodel-compose-2.7.0\res
+com.example.dailytrips.app-ui-test-manifest-1.6.1-22 C:\Users\yangt\.gradle\caches\transforms-3\59e231d7ea8189a1873ee39594648a68\transformed\ui-test-manifest-1.6.1\res
+com.example.dailytrips.app-material-ripple-release-23 C:\Users\yangt\.gradle\caches\transforms-3\5e584302f16a90a08b6e650fc48eba32\transformed\material-ripple-release\res
+com.example.dailytrips.app-emoji2-1.3.0-24 C:\Users\yangt\.gradle\caches\transforms-3\5f56bf3def91dedb6a80130f2ae309db\transformed\emoji2-1.3.0\res
+com.example.dailytrips.app-runtime-saveable-release-25 C:\Users\yangt\.gradle\caches\transforms-3\61ff85dd1040f747379f53a0237b3d2b\transformed\runtime-saveable-release\res
+com.example.dailytrips.app-material-icons-core-release-26 C:\Users\yangt\.gradle\caches\transforms-3\620196120fd5b1daccd4a8c53feedde9\transformed\material-icons-core-release\res
+com.example.dailytrips.app-lifecycle-runtime-ktx-2.7.0-27 C:\Users\yangt\.gradle\caches\transforms-3\69621d2d0f94a188e6dddb7a7fff95d4\transformed\lifecycle-runtime-ktx-2.7.0\res
+com.example.dailytrips.app-core-ktx-1.12.0-28 C:\Users\yangt\.gradle\caches\transforms-3\6bcb5a180b7c5ae245cf3db8b69f9a84\transformed\core-ktx-1.12.0\res
+com.example.dailytrips.app-lifecycle-process-2.7.0-29 C:\Users\yangt\.gradle\caches\transforms-3\6cd941b5728d35bc713ca3d34665a608\transformed\lifecycle-process-2.7.0\res
+com.example.dailytrips.app-lifecycle-livedata-core-ktx-2.7.0-30 C:\Users\yangt\.gradle\caches\transforms-3\73cefbbddc55fb382820d0a6aaeda3ea\transformed\lifecycle-livedata-core-ktx-2.7.0\res
+com.example.dailytrips.app-savedstate-1.2.1-31 C:\Users\yangt\.gradle\caches\transforms-3\7591184b4e14fbc0b911fe042afac8fc\transformed\savedstate-1.2.1\res
+com.example.dailytrips.app-play-services-maps-18.2.0-32 C:\Users\yangt\.gradle\caches\transforms-3\781185a329e686c9afa868f6f5d8bb24\transformed\play-services-maps-18.2.0\res
+com.example.dailytrips.app-ui-util-release-33 C:\Users\yangt\.gradle\caches\transforms-3\78a5bcb3c89711d3205157164cc534a1\transformed\ui-util-release\res
+com.example.dailytrips.app-coordinatorlayout-1.0.0-34 C:\Users\yangt\.gradle\caches\transforms-3\804b95b9cbb590340de0016d85e0df50\transformed\coordinatorlayout-1.0.0\res
+com.example.dailytrips.app-lifecycle-livedata-2.7.0-35 C:\Users\yangt\.gradle\caches\transforms-3\80ad4911834ffd0fcbe625bac5b97fa9\transformed\lifecycle-livedata-2.7.0\res
+com.example.dailytrips.app-ui-graphics-release-36 C:\Users\yangt\.gradle\caches\transforms-3\871eb80624aa3679b737699c0217ccac\transformed\ui-graphics-release\res
+com.example.dailytrips.app-lifecycle-livedata-core-2.7.0-37 C:\Users\yangt\.gradle\caches\transforms-3\87e3063b4d5fa080a3d860cfb5fce3be\transformed\lifecycle-livedata-core-2.7.0\res
+com.example.dailytrips.app-material3-release-38 C:\Users\yangt\.gradle\caches\transforms-3\8cfdf5cbc71dff4d1bc740f4b153dc35\transformed\material3-release\res
+com.example.dailytrips.app-ui-geometry-release-39 C:\Users\yangt\.gradle\caches\transforms-3\905d0fb5efb712c995472de0637b995a\transformed\ui-geometry-release\res
+com.example.dailytrips.app-animation-release-40 C:\Users\yangt\.gradle\caches\transforms-3\95a31db06e6127894e24ddba847a8566\transformed\animation-release\res
+com.example.dailytrips.app-customview-poolingcontainer-1.0.0-41 C:\Users\yangt\.gradle\caches\transforms-3\95a60d7fd29a45ee5b16a596ab57b607\transformed\customview-poolingcontainer-1.0.0\res
+com.example.dailytrips.app-play-services-basement-18.1.0-42 C:\Users\yangt\.gradle\caches\transforms-3\9ee47ce8e3205812f2f9952b17eb14ac\transformed\play-services-basement-18.1.0\res
+com.example.dailytrips.app-runtime-release-43 C:\Users\yangt\.gradle\caches\transforms-3\a02ab48192195fed1ec6b0f7efb98037\transformed\runtime-release\res
+com.example.dailytrips.app-ui-release-44 C:\Users\yangt\.gradle\caches\transforms-3\a357bbe47ec847b933e6735fc08e1f33\transformed\ui-release\res
+com.example.dailytrips.app-core-runtime-2.2.0-45 C:\Users\yangt\.gradle\caches\transforms-3\a596724fd6d30d8f96db7f6fc822a20f\transformed\core-runtime-2.2.0\res
+com.example.dailytrips.app-activity-1.8.2-46 C:\Users\yangt\.gradle\caches\transforms-3\a5c094d37fec8c307b213ff21ab1b701\transformed\activity-1.8.2\res
+com.example.dailytrips.app-startup-runtime-1.1.1-47 C:\Users\yangt\.gradle\caches\transforms-3\a8bb623963dccfbaf142c4cc7cd79c07\transformed\startup-runtime-1.1.1\res
+com.example.dailytrips.app-material-release-48 C:\Users\yangt\.gradle\caches\transforms-3\b439674ee8d3e47d2f37ced873556cc6\transformed\material-release\res
+com.example.dailytrips.app-lifecycle-viewmodel-ktx-2.7.0-49 C:\Users\yangt\.gradle\caches\transforms-3\bd5b5522b8cfa68fff07c34cbfe747cc\transformed\lifecycle-viewmodel-ktx-2.7.0\res
+com.example.dailytrips.app-ui-tooling-data-release-50 C:\Users\yangt\.gradle\caches\transforms-3\bdf3b2018dd3cf5f470a3020156c74e2\transformed\ui-tooling-data-release\res
+com.example.dailytrips.app-lifecycle-viewmodel-savedstate-2.7.0-51 C:\Users\yangt\.gradle\caches\transforms-3\c17406ad82f850371e197ab6751d2559\transformed\lifecycle-viewmodel-savedstate-2.7.0\res
+com.example.dailytrips.app-ui-text-release-52 C:\Users\yangt\.gradle\caches\transforms-3\c2ab83693dd412c9dd94f22023ed118b\transformed\ui-text-release\res
+com.example.dailytrips.app-savedstate-ktx-1.2.1-53 C:\Users\yangt\.gradle\caches\transforms-3\cb68753d2259af87887787084e13287f\transformed\savedstate-ktx-1.2.1\res
+com.example.dailytrips.app-lifecycle-runtime-2.7.0-54 C:\Users\yangt\.gradle\caches\transforms-3\cc269b482257343e7677caefd82573f4\transformed\lifecycle-runtime-2.7.0\res
+com.example.dailytrips.app-play-services-base-18.1.0-55 C:\Users\yangt\.gradle\caches\transforms-3\e147844984192af2f012256ea11a7a6f\transformed\play-services-base-18.1.0\res
+com.example.dailytrips.app-appcompat-resources-1.6.1-56 C:\Users\yangt\.gradle\caches\transforms-3\fdf7cb61aa48a697a9df8fc1913e04bc\transformed\appcompat-resources-1.6.1\res

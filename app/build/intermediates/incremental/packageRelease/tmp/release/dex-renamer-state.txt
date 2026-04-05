@@ -1,0 +1,7 @@
+#Sun Apr 05 13:43:42 JST 2026
+base.0=C\:\\AppDev\\trip app\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+base.1=C\:\\AppDev\\trip app\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes2.dex
+path.0=classes.dex
+path.1=classes2.dex
+renamed.0=classes.dex
+renamed.1=classes2.dex
