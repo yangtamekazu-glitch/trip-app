@@ -9,7 +9,13 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-data class PlaceCategory(val id: String, val displayName: String, val types: List<String>)
+// 英語キーワード(types)が無くても、日本語キーワード(searchQuery)で検索できるように変更
+data class PlaceCategory(
+    val id: String, 
+    val displayName: String, 
+    val types: List<String> = emptyList(), 
+    val searchQuery: String? = null
+)
 
 class PlacesViewModel : ViewModel() {
     private val repository = PlacesRepository()
@@ -18,11 +24,12 @@ class PlacesViewModel : ViewModel() {
     val uiState: StateFlow<PlacesUiState> = _uiState.asStateFlow()
 
     private val defaultCategories = listOf(
-        PlaceCategory("recommend", "おすすめ", listOf("tourist_attraction", "park", "cafe", "museum", "point_of_interest")),
-        PlaceCategory("cafe", "カフェ", listOf("cafe")),
-        PlaceCategory("nature", "自然", listOf("park", "national_park")),
-        PlaceCategory("art", "アート", listOf("museum", "art_gallery")),
-        PlaceCategory("food", "食事", listOf("restaurant"))
+        // ★変更：すべてのデフォルトカテゴリーで「人気の〇〇」というキーワード検索（Text Search）が走るようにしました
+        PlaceCategory("recommend", "おすすめ", searchQuery = "人気スポット"),
+        PlaceCategory("cafe", "カフェ", searchQuery = "人気のカフェ"),
+        PlaceCategory("nature", "自然", searchQuery = "人気の公園 自然"),
+        PlaceCategory("art", "アート", searchQuery = "人気の美術館 ギャラリー"),
+        PlaceCategory("food", "食事", searchQuery = "人気のレストラン 食事")
     )
 
     private val _categories = MutableStateFlow(defaultCategories)
@@ -31,7 +38,6 @@ class PlacesViewModel : ViewModel() {
     private val _selectedCategory = MutableStateFlow(defaultCategories.first())
     val selectedCategory: StateFlow<PlaceCategory> = _selectedCategory.asStateFlow()
 
-    // 検索距離（デフォルト3000m = 3km）
     private val _searchRadius = MutableStateFlow(3000.0)
     val searchRadius: StateFlow<Double> = _searchRadius.asStateFlow()
 
@@ -45,21 +51,22 @@ class PlacesViewModel : ViewModel() {
         _uiState.value = PlacesUiState.Loading 
         viewModelScope.launch {
             try {
-                // ★ 修正：設定された距離（_searchRadius.value）をRepositoryに渡す
-                val places = repository.fetchNearbyPlaces(latitude, longitude, category.types, _searchRadius.value)
+                // 日本語キーワードが設定されている場合は Text Search、それ以外は Nearby Search を使う
+                val places = if (category.searchQuery != null) {
+                    repository.searchPlacesByText(category.searchQuery, latitude, longitude, _searchRadius.value)
+                } else {
+                    repository.fetchNearbyPlaces(latitude, longitude, category.types, _searchRadius.value)
+                }
+
                 var placesWithPhotos = places.filter { it.photos?.isNotEmpty() == true }
                 
-                // ▼▼ ここを「賢い絞り込み」に変更しました！ ▼▼
+                // 「おすすめ」の場合は星4.0以上に絞り込む
                 if (category.id == "recommend") {
-                    // 一旦、星4.0以上のものを探す
                     val highlyRated = placesWithPhotos.filter { (it.rating ?: 0.0) >= 4.0 }
-                    
-                    // もし星4以上が1つでも見つかればそれに絞る。0件なら妥協して元のリスト(星4未満も含む)を表示する。
                     if (highlyRated.isNotEmpty()) {
                         placesWithPhotos = highlyRated
                     }
                 }
-                // ▲▲ ここまで ▲▲
                 
                 _uiState.value = PlacesUiState.Success(placesWithPhotos)
             } catch (e: Exception) {
@@ -73,7 +80,6 @@ class PlacesViewModel : ViewModel() {
         _uiState.value = PlacesUiState.Loading
         viewModelScope.launch {
             try {
-                // キーワード検索の時も設定距離を使う
                 val places = repository.searchPlacesByText(keyword, currentLat, currentLng, _searchRadius.value)
                 val placesWithPhotos = places.filter { it.photos?.isNotEmpty() == true }
                 _uiState.value = PlacesUiState.Success(placesWithPhotos)
@@ -97,20 +103,21 @@ class PlacesViewModel : ViewModel() {
         _categories.value = currentList
     }
 
-    // ★ 新規追加：カスタムカテゴリーを追加する機能
-    fun addCustomCategory(name: String, typesString: String) {
-        val typesList = typesString.split(",").map { it.trim() }.filter { it.isNotEmpty() }
-        if (name.isNotBlank() && typesList.isNotEmpty()) {
+    // 日本語の名前だけで追加できるようにし、最大10個の制限を追加
+    fun addCustomCategory(name: String) {
+        if (_categories.value.size >= 10) return // 10個以上の場合は追加しない
+        
+        if (name.isNotBlank()) {
             val newCategory = PlaceCategory(
                 id = "custom_${System.currentTimeMillis()}",
                 displayName = name,
-                types = typesList
+                // ★ユーザーが追加したカテゴリーも「人気の〇〇」として検索されるように調整
+                searchQuery = "人気の $name" 
             )
             _categories.value = _categories.value + newCategory
         }
     }
 
-    // ★ 新規追加：カテゴリーを削除する機能（"おすすめ"は消せないように保護）
     fun removeCategory(category: PlaceCategory) {
         if (category.id != "recommend") {
             _categories.value = _categories.value - category

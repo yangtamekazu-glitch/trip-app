@@ -142,14 +142,13 @@ fun MainScreen(
     // ==========================================
     if (showSettingsDialog) {
         var newCategoryName by remember { mutableStateOf("") }
-        var newCategoryTypes by remember { mutableStateOf("") }
 
         AlertDialog(
             onDismissRequest = { showSettingsDialog = false },
             title = { Text("表示設定", fontWeight = FontWeight.Bold) },
             text = {
                 Column {
-                    Text("検索範囲: ${searchRadius.toInt()} m", style = MaterialTheme.typography.bodyLarge)
+                    Text("検索範囲: ${searchRadius.toInt() / 1000} km", style = MaterialTheme.typography.bodyLarge)
                     Slider(
                         value = searchRadius.toFloat(),
                         onValueChange = { viewModel.setSearchRadius(it.toDouble()) },
@@ -161,7 +160,7 @@ fun MainScreen(
                     HorizontalDivider()
                     Spacer(modifier = Modifier.height(16.dp))
                     
-                    Text("カテゴリーの編集", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
+                    Text("カテゴリー編集 (${categories.size}/10個)", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
                     LazyColumn(modifier = Modifier.height(150.dp)) {
                         itemsIndexed(categories) { index, category ->
                             Row(
@@ -197,25 +196,22 @@ fun MainScreen(
                     OutlinedTextField(
                         value = newCategoryName,
                         onValueChange = { newCategoryName = it },
-                        label = { Text("表示名 (例: 温泉)") },
+                        label = { Text("カテゴリー名 (例: 温泉、絶景)") },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
                     )
-                    OutlinedTextField(
-                        value = newCategoryTypes,
-                        onValueChange = { newCategoryTypes = it },
-                        label = { Text("英語キーワード (例: spa)") },
-                        singleLine = true,
-                        modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp)
-                    )
+                    
+                    if (categories.size >= 10) {
+                        Text("※カテゴリーは最大10個までです", color = Color.Red, style = MaterialTheme.typography.bodySmall)
+                    }
+
                     Button(
                         onClick = {
-                            viewModel.addCustomCategory(newCategoryName, newCategoryTypes)
+                            viewModel.addCustomCategory(newCategoryName)
                             newCategoryName = ""
-                            newCategoryTypes = ""
                         },
                         modifier = Modifier.fillMaxWidth(),
-                        enabled = newCategoryName.isNotBlank() && newCategoryTypes.isNotBlank()
+                        enabled = newCategoryName.isNotBlank() && categories.size < 10
                     ) {
                         Text("このカテゴリーを追加")
                     }
@@ -361,7 +357,6 @@ fun MainScreen(
                                                         }
                                                     }
                                             ) {
-                                                // 背景写真
                                                 AsyncImage(
                                                     model = ImageRequest.Builder(LocalContext.current)
                                                         .data(viewModel.getPhotoUrl(photo.name))
@@ -371,7 +366,6 @@ fun MainScreen(
                                                     contentScale = ContentScale.Crop,
                                                     modifier = Modifier.fillMaxSize()
                                                 )
-                                                // 文字を見やすくするグラデーション
                                                 Box(
                                                     modifier = Modifier
                                                         .fillMaxSize()
@@ -383,7 +377,6 @@ fun MainScreen(
                                                         )
                                                 )
                                                 
-                                                // ★★★ ここが追加された星の評価表示です！ ★★★
                                                 if (place.rating != null) {
                                                     Box(
                                                         modifier = Modifier
@@ -399,7 +392,6 @@ fun MainScreen(
                                                     }
                                                 }
 
-                                                // スポット名
                                                 Text(
                                                     text = place.displayName?.text ?: "Unknown Place",
                                                     style = MaterialTheme.typography.titleSmall.copy(color = Color.White),
@@ -423,6 +415,8 @@ fun MainScreen(
                 GoogleMap(
                     modifier = Modifier.fillMaxSize(),
                     cameraPositionState = cameraPositionState,
+                    // ★ここに追加しました！この1行で現在地表示がオンになります！
+                    properties = MapProperties(isMyLocationEnabled = hasPermission),
                     uiSettings = MapUiSettings(
                         mapToolbarEnabled = false,
                         myLocationButtonEnabled = true,
