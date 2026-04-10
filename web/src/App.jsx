@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import { Search, Settings, MapPin, Navigation2 } from 'lucide-react';
 import './index.css';
@@ -59,7 +59,7 @@ function App() {
   // Sheet drag state
   const [sheetHeightVh, setSheetHeightVh] = useState(40);
   const [isDragging, setIsDragging] = useState(false);
-  const [startY, setStartY] = useState(0);
+  const dragState = useRef({ startY: 0, startHeightVh: 40 });
 
   // Apply theme to document root
   useEffect(() => {
@@ -73,21 +73,24 @@ function App() {
   }, [isDarkMode]);
 
   const handlePointerDown = (e) => {
-    setStartY(e.clientY);
+    dragState.current = { startY: e.clientY, startHeightVh: sheetHeightVh };
     setIsDragging(true);
     e.target.setPointerCapture(e.pointerId);
   };
 
   const handlePointerMove = (e) => {
     if (!isDragging) return;
-    const currentY = e.clientY;
+    const deltaY = e.clientY - dragState.current.startY;
     const windowH = window.innerHeight;
-    const newHeightVh = ((windowH - currentY) / windowH) * 100;
+    const deltaVh = (deltaY / windowH) * 100;
     
-    // Clamp height between 20vh and 90vh
-    if (newHeightVh >= 20 && newHeightVh <= 90) {
-      setSheetHeightVh(newHeightVh);
-    }
+    let newHeightVh = dragState.current.startHeightVh - deltaVh;
+    
+    // Clamp height between 15vh and 90vh
+    if (newHeightVh < 15) newHeightVh = 15;
+    if (newHeightVh > 90) newHeightVh = 90;
+    
+    setSheetHeightVh(newHeightVh);
   };
 
   const handlePointerUp = (e) => {
@@ -95,8 +98,8 @@ function App() {
     e.target.releasePointerCapture(e.pointerId);
 
     // Simple click logic: toggle between 40 and 85 if almost no drag occurred
-    const deltaY = e.clientY - startY;
-    if (Math.abs(deltaY) < 5) {
+    const deltaY = Math.abs(e.clientY - dragState.current.startY);
+    if (deltaY < 5) {
       setSheetHeightVh(sheetHeightVh > 60 ? 40 : 85);
     }
   };
@@ -187,6 +190,15 @@ function App() {
     setSelectedCategory(newTag);
     setNewTagName('');
     setShowSettings(false);
+  };
+
+  const handleDeleteTag = (id) => {
+    const updated = categories.filter(c => c.id !== id);
+    setCategories(updated);
+    localStorage.setItem('tripApp_categories', JSON.stringify(updated));
+    if (selectedCategory.id === id) {
+      setSelectedCategory(updated[0]);
+    }
   };
 
   const handleSearchSubmit = () => {
@@ -400,6 +412,18 @@ function App() {
                 <button className="btn-primary" onClick={handleAddTag}>追加</button>
               </div>
             </div>
+
+            {categories.filter(c => c.id.startsWith('custom_')).length > 0 && (
+              <div style={{ marginBottom: '16px' }}>
+                <h3 style={{ fontSize: '1rem', marginBottom: '8px', color: 'var(--text-secondary)' }}>作成したタグ</h3>
+                {categories.filter(c => c.id.startsWith('custom_')).map(cat => (
+                  <div key={cat.id} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px', background: 'rgba(255,255,255,0.05)', padding: '8px', border: '1px solid var(--border-color)', borderRadius: '8px' }}>
+                    <span>{cat.displayName}</span>
+                    <button className="btn-primary" style={{ padding: '6px 12px', fontSize: '0.8rem', background: '#ef4444', boxShadow: 'none' }} onClick={() => handleDeleteTag(cat.id)}>削除</button>
+                  </div>
+                ))}
+              </div>
+            )}
 
             <button className="glass-pill" style={{ width: '100%', textAlign: 'center', marginTop: '8px' }} onClick={() => setShowSettings(false)}>閉じる</button>
           </div>
