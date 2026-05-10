@@ -67,3 +67,8 @@ Android Studioでプロジェクトを開き、gradlew assembleRelease または
 技術スタック: 実装に使用したライブラリを明記し、技術力の証明になります。
 
 セットアップ: local.properties を使う手法はセキュリティ上の定石（APIキーをGitHubに上げないため）を反映しています。
+
+
+
+サービスURL
+https://trip-app-2qyu.onrender.com/
